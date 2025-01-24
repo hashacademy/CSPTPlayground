@@ -156,6 +156,7 @@ class UserController {
 
                     const payload = {
                         username: user.username,
+                        id: user._id,
                         role: user.role
                     };
                     var token = jwt.sign(payload, config.jwtSecret, {
