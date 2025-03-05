@@ -145,7 +145,9 @@ class UserController {
                     //Check password
                     let isValid = false;
                     if (req.body.password && user['password']) {
+                        
                         isValid = bcrypt.compareSync(req.body.password, user['password'])
+                        console.log(isValid);
                     }
                     if (!isValid) {
                         return res.status(401).json({

@@ -19,7 +19,7 @@ const gadgetCtrl = require('./controllers/gadget');
 const staticCtrl = require('./controllers/static');
 const sinkCtrl = require('./controllers/sink');
 
-mongoose.connect(process.env.MONGO_URL ? process.env.MONGO_URL : 'mongodb://localhost:27017/csptplayground_db', {
+mongoose.connect(process.env.MONGO_URL ? process.env.MONGO_URL : 'mongodb://0.0.0.0:27017/csptplayground_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -69,7 +69,7 @@ app.use('/api/', sinkCtrl);
 
 app.use(error.errorHandler);
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
